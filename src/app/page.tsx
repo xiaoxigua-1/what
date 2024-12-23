@@ -32,7 +32,7 @@ export default function Home() {
             style={{
               top: item.y,
               left: item.x,
-              "--i": `${index * 200}ms` 
+              "--i": `${index * 200}ms`
             }}
           >
             啥
