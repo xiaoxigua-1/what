@@ -9,6 +9,7 @@ interface Position {
 
 export default function Home() {
   const [what, setWhat] = useState<Position[]>([]);
+  const [randomOuchIndex, setRandomOuchIndex] = useState(0);
 
   useEffect(() => {
     setWhat(
@@ -17,6 +18,10 @@ export default function Home() {
         y: Math.floor(Math.random() * window.innerHeight) - 50,
       })),
     );
+
+    setInterval(() => {
+      setRandomOuchIndex(Math.floor(Math.random() * 200));
+    }, 4000);
   }, []);
 
   return (
@@ -35,7 +40,9 @@ export default function Home() {
               "--i": `${index * 200}ms`
             }}
           >
-            啥
+            {randomOuchIndex === index ?
+              <a href="https://蛤.tw">蛤</a>
+            : "啥"}
           </div>
         );
       })}
